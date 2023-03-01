@@ -5,6 +5,12 @@ from .models import Client
 from .serializers import ClientSerializer
 
 
-class ClientAPIView(generics.ListAPIView):
+class ClientAPIView(generics.ListCreateAPIView):
+    queryset = Client.objects.all()
+    serializer_class = ClientSerializer
+class ClientAPIUpdate(generics.UpdateAPIView):
+    queryset = Client.objects.all()
+    serializer_class = ClientSerializer
+class ClientAPIDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Client.objects.all()
     serializer_class = ClientSerializer

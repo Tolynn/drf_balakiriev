@@ -17,9 +17,14 @@ from django.contrib import admin
 from django.urls import path
 
 
-from client.views import ClientAPIView
+from client.views import ClientAPIView, ClientAPIUpdate,ClientAPIDetailView
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/clientlist', ClientAPIView.as_view())
+    path('api/v1/clientlist/', ClientAPIView.as_view()),
+    path('api/v1/clientlist/<int:pk>/', ClientAPIUpdate.as_view()),
+    path('api/v1/clientdetail/<int:pk>/', ClientAPIDetailView.as_view()),
+
 ]
